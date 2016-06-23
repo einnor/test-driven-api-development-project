@@ -9,12 +9,13 @@ class FruitsTest extends TestCase
     use DatabaseMigrations;
 
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @test
+     * Test: GET /api
      */
-    public function testExample()
-    {
-        $this->assertTrue(true);
+    public function it_praises_the_fruits() {
+        $this->get('/api')
+            ->seeJson([
+                'Fruits' => 'Delicious and healthy!'
+            ]);
     }
 }
